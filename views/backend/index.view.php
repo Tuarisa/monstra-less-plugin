@@ -36,7 +36,12 @@
                     <tbody>
                     <?php if (count($triggers) != 0) foreach ($triggers as $trigger) { ?>
                     <tr>
-                        <td><?php echo $trigger['object'] ?></td>
+                        <td>
+                            <div class="btn-group">
+                                            <?php echo Html::anchor(__('Edit', 'less'), 'index.php?id=less&action=edit_less&filename='.str_replace('.less', '', $trigger['object']), array('class' => 'btn btn-primary')); ?>
+                                        </div>
+                            <?php echo $trigger['object'] ?>
+                        </td>
                         <td><?php echo $trigger['subject'] ?></td>
                         <td><?php echo Html::anchor(__('Delete', 'less'),
                     'index.php?id=less&delete_id='.$trigger['id'].'&token='.Security::token(),
